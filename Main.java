@@ -12,7 +12,6 @@ public class Main {
         System.out.println(icyHot(-1, 120)); // true
         System.out.println(icyHot(2, 120));  // false
 
-        System.out.println(in1020(12, 99)); // true
 
         System.out.println(hasTeen(13, 20, 10)); // true
         System.out.println(hasTeen(20, 19, 10)); // true
@@ -30,6 +29,7 @@ public class Main {
         System.out.println(helloName("Bob"));   // Hello Bob!
         System.out.println(helloName("Alice")); // Hello Alice!
         System.out.println(helloName("X"));     // Hello X!
+        System.out.println(helloName("Max"));   // Hello Max!
 
         System.out.println(lastTwo("coding"));
         System.out.println(lastTwo("cat"));
@@ -60,7 +60,8 @@ public class Main {
         }
         return false;
     }
-    /* метод icyHot в якому створила 3 умови . */
+    //метод icyHot в якому створила 3 умови .
+
     /**
      * We'll say that a number is "teen" if it is in the range 13..19 inclusive. Given 3 int values, return true if 1
      * or more of them are teen.
@@ -81,9 +82,8 @@ public class Main {
         }
         return false;
     }
+
     // ======== Boolean expressions ========
-
-
 
     /**
      * The parameter weekday is true if it is a weekday, and the parameter vacation is true if we are on vacation.
@@ -93,9 +93,15 @@ public class Main {
      * sleepIn(true, false) → false
      * sleepIn(false, true) → true
      */
-    public static boolean sleepIn(boolean weekday, boolean vacation) {
+    public boolean sleepIn(boolean weekday, boolean vacation) {
         // TODO: write method body
-        if (!weekday || vacation) {
+        if (weekday == false) {
+            return true;
+        }
+        if (weekday == true) {
+            return false;
+        }
+        if (vacation == true) {
             return true;
         }
         return false;
@@ -109,13 +115,16 @@ public class Main {
      * monkeyTrouble(false, false) → true
      * monkeyTrouble(true, false) → false
      */
-    public static boolean monkeyTrouble(boolean aSmile, boolean bSmile) {
+    public boolean monkeyTrouble(boolean aSmile, boolean bSmile) {
         // TODO: write method body
-        if (aSmile && bSmile) {
+        if (aSmile == true && bSmile == true) {
             return true;
         }
-        if (!aSmile && !bSmile) {
+        if (aSmile == false && bSmile == false) {
             return true;
+        }
+        if (aSmile == true && bSmile == false) {
+            return false;
         }
         return false;
     }
@@ -129,22 +138,24 @@ public class Main {
      * posNeg(-4, -5, true) → true
      */
     public static boolean posNeg(int a, int b, boolean negative) {
-        if (!negative) {
+        // TODO: write method body
+        if (negative == false) {
             if (a > 0 && b < 0) {
                 return true;
             }
+        }
+        if (negative == false) {
             if (a < 0 && b > 0) {
                 return true;
             }
         }
-        if (negative) {
+        if (negative == true) {
             if (a < 0 && b < 0) {
                 return true;
             }
         }
         return false;
     }
-
 
     // ======== Loops and Arrays ========
 
@@ -155,7 +166,7 @@ public class Main {
      * arrayCount9([1, 9, 9]) → 2
      * arrayCount9([1, 9, 9, 3, 9]) → 3
      */
-    public static int arrayCount9(int[] nums) {
+    public int arrayCount9(int[] nums) {
         // TODO: write method body
         int count = 0; //створила перемену count, яка буде рахувати дев'ятки
 
@@ -177,7 +188,7 @@ public class Main {
      * arrayFront9([1, 2, 3, 4, 9]) → false
      * arrayFront9([1, 2, 3, 4, 5]) → false
      */
-    public static boolean arrayFront9(int[] nums) {
+    public boolean arrayFront9(int[] nums) {
         // TODO: write method body
         int end = Math.min(nums.length, 4);//тут перевіряємо лише перші 4 цифри масиву
         for (int i = 0; i < end; i++) {
@@ -198,7 +209,7 @@ public class Main {
      * array123([1, 1, 2, 4, 1]) → false
      * array123([1, 1, 2, 1, 2, 3]) → true
      */
-    public static boolean array123(int[] nums) {
+    public boolean array123(int[] nums) {
         // TODO: write method body
         for (int i = 0; i < nums.length - 2; i++) {
             if (nums[i] == 1) { //перший елемент
@@ -213,9 +224,6 @@ public class Main {
         return false;//не правда якщо нічого не знайшлось
     }
 
-    public static boolean in1020(int a, int b) {
-        return (a >= 10 && a <= 20) || (b >= 10 && b <= 20);
-    }
     // ======== Strings ========
 
     /**
@@ -226,7 +234,9 @@ public class Main {
      * helloName("X") → "Hello X!"
      */
     public static String helloName(String name) {
-        return "Hello " + name + "!";
+        // TODO: write method body
+        String result = "Hello " + name + "!";//створила зміну result
+        return result;
     }
 
     /**
@@ -238,7 +248,7 @@ public class Main {
      * lastTwo("ab") → "ba"
      */
     public static String lastTwo(String str) {
-
+        // TODO: write method body
         if (str.length() < 2) {
             return str;//якщо довжина рядка менше 2 символів повертаємо як було
         }
@@ -256,7 +266,7 @@ public class Main {
      * middleTwo("Practice") → "ct"
      */
     public static String middleTwo(String str) {
-
+        // TODO: write method body
         int len = str.length();// довжина рядка
         int mid = len / 2;// середина
         char first = str.charAt(mid - 1);// беремо два символи по середині
@@ -264,6 +274,3 @@ public class Main {
         return "" + first + second; // склеюємо їх у рядок
     }
 }
-
-
-
